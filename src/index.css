@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/src/assets/fonts/Bricolage_Grotesque/static/BricolageGrotesque-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans Local";
+  src: url("/src/assets/fonts/DM_Sans/static/DMSans-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* HSL values (without hsl() wrapper) so we can use hsl(var(--...)) */
+  --neutral-900: 243 96% 9%; /* deep navy */
+  --neutral-800: 243 27% 20%;
+  --neutral-700: 243 23% 24%;
+  --neutral-600: 243 23% 30%;
+  --neutral-300: 240 6% 70%;
+  --neutral-200: 250 6% 84%;
+  --orange-500: 28 100% 52%;
+  --blue-500: 233 67% 56%;
+  --blue-700: 248 70% 36%;
+}
+
+/* body basics */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: hsl(var(--neutral-900));
+  color: hsl(var(--neutral-200));
+  font-family: "DM Sans Local", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  font-size: 18px; /* per style guide body size */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.display-font {
+  font-family: "Bricolage Grotesque", "DM Sans Local", system-ui;
+}
+
+/* small util for gradient card background to match screenshot */
+.bg-hero-gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(88, 106, 255, 0.9) 0%,
+    rgba(129, 79, 255, 0.9) 100%
+  );
+  box-shadow: 0 10px 30px rgba(7, 10, 30, 0.6);
+}
+
+/* subtle card */
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+}
+
+/* custom scrollbar for hourly list (nice touch) */
+.hourly-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.hourly-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.hourly-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+
+/* centered panel (main card) */
+.panel {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 30px 60px rgba(2, 6, 23, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.small-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.hero-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Daily card styles */
+.daily-card {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.daily-card--today {
+  background: linear-gradient(
+    180deg,
+    rgba(88, 86, 255, 0.14),
+    rgba(88, 86, 255, 0.06)
+  );
+  border: 1px solid rgba(129, 79, 255, 0.18);
+  box-shadow: 0 6px 18px rgba(18, 16, 40, 0.6);
+}
+
+/* slight spacing tweaks for daily row */
+.daily-row {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.daily-badge {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+/* tweak daily card sizes and spacing */
+.daily-card,
+.daily-card--today {
+  min-width: 96px;
+  max-width: 120px;
+}
